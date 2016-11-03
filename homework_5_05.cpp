@@ -14,12 +14,12 @@ void sort(int array[], size_t SIZE) {
 
 void insertionSort(int array[], size_t SIZE) {
   for (size_t j = 1; j < SIZE; ++j) {
-    size_t k = j - 1;
-    while (array[j] < array[k] && j != 0) {
+    int key = array[j];
+    int k = j - 1;
+    while (key < array[k] && k >= 0) {
       int temp = array[k];
-      array[k] = array[j];
+      array[k] = key;
       array[k + 1] = temp;
-      --j;
       --k;
     }
   }
