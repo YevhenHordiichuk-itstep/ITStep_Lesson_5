@@ -109,8 +109,6 @@ bool compare(Point array[], Point copy[], size_t SIZE) {
   return true;
 }
 
-bool comp (Point A, Point) 
-
 int main(int argc, char** argv) {
   while (true) {
     size_t corn = GetTickCount() + rand();
@@ -123,7 +121,7 @@ int main(int argc, char** argv) {
     copyArray(points, points_copy, SIZE);
     mergeSort(points, SIZE);
     
-    std::sort(points_copy, points_copy + SIZE, comp);
+    std::sort(points_copy, points_copy + SIZE);
     
     if (compare(points, points_copy, SIZE)) {
       printf("OK\n");

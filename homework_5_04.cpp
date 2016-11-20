@@ -24,28 +24,22 @@ void merge(int left[], int right[], size_t left_size, size_t right_size, int out
   size_t l = 0, r = 0, k = 0;
   while (l < left_size && r < right_size) {
     if (left[l] <= right[r]) {
-      output[k] = left[l];
-      ++l;
+      output[k] = left[l++];
     } else {
-      output[k] = right[r];
-      ++r;
+      output[k] = right[r++];
     }
     ++k;
   }
   
   if (l == left_size) {
     while (r < right_size) {
-      output[k] = right[r];
-      ++r;
-      ++k;
+      output[k++] = right[r++];
     }
   }
   
   if (r == right_size) {
     while (l < left_size) {
-      output[k] = left[l];
-      ++l;
-      ++k;
+      output[k++] = left[l++];
     }
   }
 }
@@ -105,8 +99,7 @@ bool compare(int array[], int copy[], size_t SIZE) {
 
 int main(int argc, char** argv) {
   while (true) {
-    size_t corn = GetTickCount() + rand();
-    srand(corn);
+    srand(239);
     size_t SIZE = rand() % 99 + 1;
     int array[SIZE], copy[SIZE];
   
@@ -117,7 +110,7 @@ int main(int argc, char** argv) {
     if (compare(array, copy, SIZE)) {
       printf("OK\n");
     } else {
-      printf("Error!\tcorn = %i\n", corn);
+      printf("Error!\n");
       printArray(array, SIZE);
       printArray(copy, SIZE);
       break;

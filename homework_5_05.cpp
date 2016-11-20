@@ -30,28 +30,22 @@ void merge(int left[], int right[], size_t left_size, size_t right_size, int out
   
   while (l < left_size && r < right_size) {
     if (left[l] <= right[r]) {
-      output[k] = left[l];
-      ++l;
+      output[k] = left[l++];
     } else {
-      output[k] = right[r];
-      ++r;
+      output[k] = right[r++];
     }
     ++k;
   }
   
   if (l == left_size) {
     while (r < right_size) {
-      output[k] = right[r];
-      ++r;
-      ++k;
+      output[k++] = right[r++];
     }
   }
   
   if (r == right_size) {
     while (l < left_size) {
-      output[k] = left[l];
-      ++l;
-      ++k;
+      output[k++] = left[l++];
     }
   }
 }
